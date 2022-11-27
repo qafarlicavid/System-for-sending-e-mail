@@ -1,0 +1,37 @@
+﻿@model List<ListViewModel>
+@using System_for_sending_e_mail.ViewModels;
+
+<div class="container pt-5">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-route="notification-add" target="_blank" class="btn btn-secondary mt-5">Send Email</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th scope="col">Title</th>
+                <th scope="col">FromEmail</th>
+                <th scope="col">TargetEmail</th>*@
+
+                <th scope="col">@Html.DisplayNameFor(b=>b.GetEnumerator().Current.FromEmail)</th>
+                <th scope="col">@Html.DisplayNameFor(b=>b.GetEnumerator().Current.TargetEmail)</th>
+                <th scope="col">@Html.DisplayNameFor(b=>b.GetEnumerator().Current.Title)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emodel in Model)
+            {
+
+                <tr>
+                    <td>@emodel.Title</td>
+                    <td>@emodel.FromEmail</td>
+                    <td>@emodel.TargetEmail</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

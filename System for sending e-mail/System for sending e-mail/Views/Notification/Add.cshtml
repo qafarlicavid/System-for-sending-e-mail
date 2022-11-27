@@ -1,0 +1,48 @@
+﻿@model AddViewModel
+@using System_for_sending_e_mail.ViewModels;
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Send Email</h4>
+            </div>
+            <div class="card-body">
+                <div class="general-label">
+                    <form method="POST" asp-route="notification-add">
+
+                        <div class="mb-3 row">
+                            <label asp-for="Email" for="horizontalInput2" class="col-sm-2 col-form-label">To Email</label>
+                            <div class="col-sm-10">
+                                <input asp-for="Email.ToEmail" class="form-control" id="horizontalInput2" placeholder="To Email">
+                                Indivudual:   @Html.RadioButtonFor(model => model.EmailBulk, "false")
+                                Bulk: @Html.RadioButtonFor(model => model.EmailBulk, "true")
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label asp-for="Title" for="horizontalInput2" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input asp-for="Title" type="text" class="form-control" id="horizontalInput2" placeholder="Title">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label asp-for="Content" for="horizontalInput2" class="col-sm-2 col-form-label">Content</label>
+                            <div class="col-sm-10">
+                                <input asp-for="Content" type="text" class="form-control" id="horizontalInput2" placeholder="Content">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-10 ms-auto">
+                                <button asp-route="notification-add" type="submit" class="btn btn-de-primary">Submit</button>
+                                <button asp-route="notification-list" type="button" class="btn btn-de-danger">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div>
